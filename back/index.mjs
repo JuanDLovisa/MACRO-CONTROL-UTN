@@ -1,16 +1,25 @@
 import express from "express";
-import { sequelize } from './config/db.js';
-import cors from "cors"
-import "dotenv/config"
-import './helpers/dbrelationships.js'; // para ejecutar las asociaciones
+import { sequelize } from "./config/db.js";
+import userRoutes from "./routes/userRoutes.js";
+import foodRoutes from "./routes/foodRoutes.js";
+import dietRoutes from "./routes/dietRoutes.js";
+import "dotenv/config";
 
 const app = express();
-
 app.use(express.json());
-app.use(cors());
 
-// Middleware de JSON
-app.use(express.json());
+// Rutas
+app.use("/users", userRoutes);
+app.use("/food", foodRoutes);
+app.use("/diet", dietRoutes);
+
+try {
+  await sequelize.authenticate();
+  console.log("DB connected successfully");
+  await sequelize.sync(); // opcional: { alter: true }
+} catch (err) {
+  console.error("DB error:", err);
+}
 
 // Sincronizar modelos con la base de datos antes de correr el servidor (el fede corre primero el servidor)
 sequelize.sync({ alter: true })
