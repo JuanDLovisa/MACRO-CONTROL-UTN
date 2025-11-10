@@ -1,9 +1,12 @@
 import express from "express";
+import "dotenv/config";
+
 import { sequelize } from "./config/db.js";
+
 import userRoutes from "./routes/userRoutes.js";
 import foodRoutes from "./routes/foodRoutes.js";
 import dietRoutes from "./routes/dietRoutes.js";
-import "dotenv/config";
+
 
 const app = express();
 app.use(express.json());

@@ -1,7 +1,8 @@
 {
   "main": "index.mjs",
   "scripts": {
-    "start": "node index.mjs"
+    "start": "node index.mjs",
+    "dev": "node --watch index.mjs"
   },
   "type": "module",
   "dependencies": {

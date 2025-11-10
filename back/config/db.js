@@ -1,17 +1,17 @@
-import {Sequelize} from "sequelize"
+import { Sequelize } from "sequelize"
 
-/*export const sequelize = new Sequelize( //Ver por que trae undefined
-    process.env.NAME_DB,
-    process.env.USER_DB,
-    process.env.PASS_DB,
+export const sequelize = new Sequelize( //Ver por que trae undefined
+    process.env.DATABASE,
+    process.env.USER,
+    process.env.PASSWORD,
     {
-        host: process.env.HOST_DB,
-        port: process.env.PORT_DB,
-        dialect:process.env.DIALECT_DB
+        host: process.env.HOST,
+        port: process.env.PORT,
+        dialect:"mysql"
     }
-)*/
+)
 
-export const sequelize = new Sequelize(
+/*export const sequelize = new Sequelize(
   "macro_control_utn",
   "root",
   "123456789",
@@ -19,4 +19,4 @@ export const sequelize = new Sequelize(
     dialect: "mysql",
     host: "localhost",
     port: 3306
-  })
+  })*/
